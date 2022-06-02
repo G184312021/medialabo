@@ -1,0 +1,25 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.heading {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: black;
+    position: relative;
+    min-height: 1px;
+    margin-bottom: 12px;
+}
+
+.searchbox {
+    background: white;
+    position: relative;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    display: block;
+}

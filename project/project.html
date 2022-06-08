@@ -9,66 +9,70 @@
     <body>
 
         <header>
+            
             <div>
                 <h1 class="heading">東京のお店を検索</h1>
             </div>
 
         </header>
         
-        <img src="project/gurmet.png" alt="">
+        
+        <form name="sampleform">
 
-         <div class="searchbox">
-             <div class="searchbox2">
-                 <div class="people">
-                     <span>人数</span>
-                     <select class="people2">
-                         <option value="1">1名</option>
-                         <option value="2" selected>2名</option>
-                         <option value="3">3名</option>
-                         <option value="4">4名</option>
-                         <option value="5">5名</option>
-                         <option value="6">6名</option>
-                         <option value="7">7名</option>
-                         <option value="gt8">8名以上</option>
-                     </select>
-                 </div>
-                    
-                 <div class="date">
-                     <div class="date2">
-                         <span>日程</span>
-                        <input type="date" class="date3">
-                        
+            <div class="searchbox">
+   
+                <div class="searchbox2">
+                    <div class="people">
+                        <span>人数</span>
+                        <select class="people2">
+                            <option value="1">1名</option>
+                            <option value="2" selected>2名</option>
+                            <option value="3">3名</option>
+                            <option value="4">4名</option>
+                            <option value="5">5名</option>
+                            <option value="6">6名</option>
+                            <option value="7">7名</option>
+                            <option value="gt8">8名以上</option>
+                        </select>
                     </div>
-                 </div>
-    
-                 <div class="budget">
-                    <span>予算</span>
-                    <select class="sb">
-                        <option value="gt1000&lt2000">1000-2000円</option>
-                        <option value="gt2000&lt3000" selected>2000-3000円</option>
-                        <option value="gt3000&lt4000">3000-4000円</option>
-                        <option value="gt4000&lt5000">4000-5000円</option>
-                        <option value="gt5000">5000円以上</option>
-                       </select>
+                       
+                    <div class="date">
+                        <div class="date2">
+                            <span>日程</span>
+                           <input type="date" class="date3">
+                           
+                       </div>
                     </div>
-
-             </div>
-
-            <div class="search">
-                <input type="text" class="search2" placeholder="エリア、ジャンル、レストラン名  etc">
-                
-            </div>
        
-       
-            <button class="seb" appearance="primary" type="button">
-                <span class="seb2">
-                    <span class="seb3">
-                        <span>検索する</span>
-                    </span>
-                </span>
-            </button>
+                    <div class="budget">
+                       <span>予算</span>
+                       <select class="sb">
+                           <option value="gt1000&&lt2000">1000-2000円</option>
+                           <option value="gt2000&&lt3000" selected>2000-3000円</option>
+                           <option value="gt3000&&lt4000">3000-4000円</option>
+                           <option value="gt4000&&lt5000">4000-5000円</option>
+                           <option value="gt5000">5000円以上</option>
+                          </select>
+                       </div>
+   
+                </div>
+   
+               <div class="search">
+                   <input type="text" class="search2" placeholder="エリア、ジャンル、レストラン名  etc">
+                   
+               </div>
+          
+          
+               <button class="seb" appearance="primary" type="button" onclick="search()">
+                   <span class="seb2">
+                       <span class="seb3">
+                           <span>検索する</span>
+                       </span>
+                   </span>
+               </button>
+        </form>
             
-            <button appearance="link" class="re" type="button">
+            <button appearance="link" class="re" type="button" onclick="formReset()">
                 <span class="re2">
                     <span class="re3">
                         <span>条件をリセット</span>

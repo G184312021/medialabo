@@ -201,3 +201,12 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 
+
+
+function formReset() {
+  document.sampleform.reset();
+}
+
+function search() {
+  
+}

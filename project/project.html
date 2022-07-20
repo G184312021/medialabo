@@ -5,6 +5,7 @@
         <title>グルメ情報</title>
         <link rel="stylesheet" href="style.css">
         <script src="gourmet.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" defer></script>
     </head>
     <body>
 
@@ -17,26 +18,38 @@
         </header>
         
         
+        
         <form name="sampleform">
 
             <div class="searchbox">
    
-                <div class="searchbox2">
+              <div class="searchbox2">
                     <div class="people">
-                        <span>人数</span>
-                        <select class="people2">
-                            <option value="1">1名</option>
-                            <option value="2" selected>2名</option>
-                            <option value="3">3名</option>
-                            <option value="4">4名</option>
-                            <option value="5">5名</option>
-                            <option value="6">6名</option>
-                            <option value="7">7名</option>
-                            <option value="gt8">8名以上</option>
+                        <span>選択</span>
+                        <select class="people2" id="selectg">
+                            <option name = "g" id="" value="0"  selected >ジャンル</option>
+                            <option name = "g" id="" value="G001"  >居酒屋</option>
+                            <option name = "g" id="" value="G002"> ダイニングバー・バル</option>
+                            <option name = "g" id="" value="G003"> 創作料理</option>
+                            <option name = "g" id="" value="G004"> 和食</option>
+                            <option name = "g" id="" value="G005"> 洋食</option>
+                            <option name = "g" id="" value="G006"> イタリアン・フレンチ</option>
+                            <option name = "g" id="" value="G007"> 中華</option>
+                            <option name = "g" id="" value="G008"> 焼肉・ホルモン</option>
+                            <option name = "g" id="" value="G009"> アジア・エスニック料理</option>
+                            <option name = "g" id="" value="G010" >各国料理」</option>
+                            <option name = "g" id="" value="G011" >カラオケ・パーティー</option>
+                            <option name = "g" id="" value="G012" >バー・カクテル</option>
+                            <option name = "g" id="" value="G013" >ラーメン</option>
+                            <option name = "g" id="" value="G014" >カフェ・スイーツ</option>
+                            <option name = "g" id="" value="G015" >その他グルメ</option>
+                            <option name = "g" id="" value="G016" >お好み焼き・もんじゃ</option>
+                            <option name = "g" id="" value="G017" >韓国料理</option>
+                       
                         </select>
                     </div>
-                       
-                    <div class="date">
+                     
+                    <!-- <div class="date">
                         <div class="date2">
                             <span>日程</span>
                            <input type="date" class="date3">
@@ -53,36 +66,38 @@
                            <option value="gt4000&&lt5000">4000-5000円</option>
                            <option value="gt5000">5000円以上</option>
                           </select>
-                       </div>
+                       </div> -->
    
                 </div>
-   
-               <div class="search">
-                   <input type="text" class="search2" placeholder="エリア、ジャンル、レストラン名  etc">
+
+               <!-- <div class="search">
+                   <input type="text" class="search2" placeholder="ジャンル">
                    
-               </div>
+               </div> -->
           
           
-               <button class="seb" appearance="primary" type="button" onclick="search()">
+               <button class="seb" appearance="primary" type="button" id="sb">
                    <span class="seb2">
                        <span class="seb3">
                            <span>検索する</span>
                        </span>
                    </span>
                </button>
-        </form>
             
-            <button appearance="link" class="re" type="button" onclick="formReset()">
-                <span class="re2">
-                    <span class="re3">
-                        <span>条件をリセット</span>
+       
+            
+                <button appearance="link" class="re" type="button" onclick="formReset()">
+                    <span class="re2">
+                        <span class="re3">
+                            <span>条件をリセット</span>
+                        </span>
                     </span>
-                </span>
-            </button>
+                </button>
+            </div>
 
-         </div>
+        </form>
          
-
+        <div id="dis" class="result"></div>
         
     </body>
 </html>

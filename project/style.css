@@ -89,6 +89,7 @@ body {
 .search {
   width: 100%;
   border-top: 1px solid gainsboro;
+  height: 60px;
 }
 
 .sb {

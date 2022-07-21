@@ -215,18 +215,26 @@ b.addEventListener('click', sendRequest);
 // 通信を開始する処理
 function sendRequest() {
    console.log(c);
-   let m, x;
+   let m, index;
 
-    // let y = document.getElementById('selectg');
-    // for (m of y) {
-    //   if(m.checked) {
-    //     x = m.ariaValueMax;
-    //   }
-    // }
+    let y = document.querySelectorAll('option')
+    let selectElem = document.getElementById('select');
+    selectElem.addEventListener('change', function() {
+      index = selectElem.selectedIndex;
+      
+    })
+
+    for (m of y) {
+      if(m.checked) {
+        x = m.ariaValueMax;
+      }
+    }
     // URL を設定
     let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + index + '.json';
 
     // 通信開始
+
+
     axios.get(url)
         .then(showResult)   // 通信成功
         .catch(showError)   // 通信失敗
@@ -250,16 +258,9 @@ function showResult(resp) {
 
     let b, d, ul = document.querySelector("ul"), li;
     dis.insertAdjacentElement("afterend", ul);
-    // 追加した文
-    document.querySelectorAll('option')
     
-    let selectElem = document.getElementById('select');
-    let index;
-    selectElem.addEventListener('change', function() {
-      index = selectElem.selectedIndex;
-      
-    })
-
+    
+   
 
     // data をコンソールに出力
     console.log(data);

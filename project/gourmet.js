@@ -224,13 +224,20 @@ function sendRequest() {
       
     })
 
-    for (y of index) {
-      if(y.selected) {
-        x = y.selectedIndex;
-      }
+    // for (y of index) {
+    //   if(y.selected) {
+    //     x = y.selectedIndex;
+    //   }
+    // }
+
+    let math;
+
+    for (math of y) {
+      x = math.value;
     }
+
     // URL を設定
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G00' + x + '.json';
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + x + '.json';
 
     // 通信開始
 

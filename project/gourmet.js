@@ -217,14 +217,14 @@ function sendRequest() {
    console.log(c);
    let m, x;
 
-    let y = document.getElementById('selectg');
-    for (m of y) {
-      if(m.checked) {
-        x = m.ariaValueMax;
-      }
-    }
+    // let y = document.getElementById('selectg');
+    // for (m of y) {
+    //   if(m.checked) {
+    //     x = m.ariaValueMax;
+    //   }
+    // }
     // URL を設定
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ x + '.json';
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + index + '.json';
 
     // 通信開始
     axios.get(url)
@@ -248,8 +248,17 @@ function showResult(resp) {
     a = data.name;
     dis.textContent = 'お店の名前--' + a + '--';
 
-    let b, d, ul = document.querySelector("ul"), li, e = document.getElementById('selectg');
+    let b, d, ul = document.querySelector("ul"), li;
     dis.insertAdjacentElement("afterend", ul);
+    // 追加した文
+    document.querySelectorAll('option')
+    
+    let selectElem = document.getElementById('select');
+    let index;
+    selectElem.addEventListener('change', function() {
+      index = selectElem.selectedIndex;
+      
+    })
 
 
     // data をコンソールに出力

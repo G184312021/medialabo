@@ -215,7 +215,7 @@ b.addEventListener('click', sendRequest);
 // 通信を開始する処理
 function sendRequest() {
    console.log(c);
-   let selectElem, index,x, m;
+   let selectElem, index,x;
 
     let y = document.querySelectorAll('option')
     selectElem = document.getElementById('select');
@@ -224,9 +224,9 @@ function sendRequest() {
       
     })
 
-    for (m of y) {
-      if(m.selected) {
-        x = m.selectedIndex;
+    for (y of index) {
+      if(y.selected) {
+        x = y.selectedIndex;
       }
     }
     // URL を設定
@@ -256,8 +256,26 @@ function showResult(resp) {
     a = data.name;
     dis.textContent = 'お店の名前--' + a + '--';
 
-    let b, d, ul = document.querySelector("ul"), li;
+    let b, ul = document.querySelector("ul"), li;
+    let i = document.querySelectorAll('option');
     dis.insertAdjacentElement("afterend", ul);
+
+    for (b of data.results.shop) {
+      dis = document.createElement('ul');
+      li = document.createElement("li");
+      li.textContent = 'アクセス情報・・' + data.access;
+      ul.insertAdjacentElement("beroreend", li);
+      li.textContent = '住所・・' + data.address;
+      ul.insertAdjacentElement("beroreend", li);
+      li.textContent = '予算・・' + data.budget.name;
+      ul.insertAdjacentElement("beroreend", li);
+      li.textContent = 'キャッチコピー・・' + data.catch;
+      ul.insertAdjacentElement("beroreend", li);
+      li.textContent = '営業日時・・' + data.open;
+      ul.insertAdjacentElement("beroreend", li);
+      li.textContent = '最寄り駅・・' + data.station_name;
+
+    }
     
     
    

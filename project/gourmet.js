@@ -215,22 +215,22 @@ b.addEventListener('click', sendRequest);
 // 通信を開始する処理
 function sendRequest() {
    console.log(c);
-   let m, index;
+   let selectElem, index,x, m;
 
     let y = document.querySelectorAll('option')
-    let selectElem = document.getElementById('select');
+    selectElem = document.getElementById('select');
     selectElem.addEventListener('change', function() {
       index = selectElem.selectedIndex;
       
     })
 
     for (m of y) {
-      if(m.checked) {
-        x = m.ariaValueMax;
+      if(m.selected) {
+        x = m.selectedIndex;
       }
     }
     // URL を設定
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + index + '.json';
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G00' + x + '.json';
 
     // 通信開始
 

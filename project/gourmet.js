@@ -214,30 +214,70 @@ b.addEventListener('click', sendRequest);
 
 // 通信を開始する処理
 function sendRequest() {
-   console.log(c);
-   let selectElem, index,x;
-
-    let y = document.querySelectorAll('option')
-    selectElem = document.getElementById('select');
-    selectElem.addEventListener('change', function() {
-      index = selectElem.selectedIndex;
-      
-    })
-
-    // for (y of index) {
-    //   if(y.selected) {
-    //     x = y.selectedIndex;
-    //   }
-    // }
-
-    let math;
-
-    for (math of y) {
-      x = math.value;
-    }
-
+  //  console.log(c);
+  //  let m, x, y;
+  //  y = document.querySelectorAll('option[name="g"]');
+  //  for (m of y) {
+  //   x = m.value
+  //  }   
+  let a, A, aa, dis = document.querySelector('div#dis');
+  a = document.querySelector('option[name="g"]');
+  A = a.value;
+  
+  if (A === 'G001'){
+    aa = '居酒屋';
+  } else if (A === 'G002') {
+    aa = 'ダイニングバー・バル';
+  }
+   else if (A === 'G003') {
+    aa = '創作料理';
+  }
+   else if (A === 'G004') {
+    aa = '和食';
+  }
+   else if (A === 'G005') {
+    aa = '洋食';
+  }
+   else if (A === 'G006') {
+    aa = 'イタリアン・フレンチ';
+  }
+   else if (A === 'G007') {
+    aa = '中華';
+  }
+   else if (A === 'G008') {
+    aa = '焼肉・ホルモン';
+  }
+   else if (A === 'G009') {
+    aa = 'アジア・エスニック料理';
+  }
+   else if (A === 'G010') {
+    aa = '各国料理';
+  }
+   else if (A === 'G011') {
+    aa = 'カラオケ・パーティー';
+  }
+   else if (A === 'G012') {
+    aa = 'バー・カクテル';
+  }
+   else if (A === 'G013') {
+    aa = 'ラーメン';
+  }
+   else if (A === 'G014') {
+    aa = 'カフェ・スイーツ';
+  }
+   else if (A === 'G015') {
+    aa = 'その他グルメ';
+  }
+   else if (A === 'G016') {
+    aa = 'お好み焼き・もんじゃ';
+  }
+   else if (A === 'G017') {
+    aa = '韓国料理';
+  }
+ 
+  dis.textContent = 'お店の名前--' + aa + '--';
     // URL を設定
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + x + '.json';
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + A + '.json';
 
     // 通信開始
 
@@ -259,36 +299,51 @@ function showResult(resp) {
         data = JSON.parse(data);
     }
 
-    let a, dis = document.querySelector('div#dis');
-    a = data.name;
-    dis.textContent = 'お店の名前--' + a + '--';
+   
 
-    let b, ul = document.querySelector("ul"), li;
-    let i = document.querySelectorAll('option');
-    dis.insertAdjacentElement("afterend", ul);
+    // let b, ul = document.createElement("ul"), i = document.querySelectorAll('option[name="g"]'), Dis = document.createElement('ul'), li;
+    // dis.insertAdjacentElement("afterend", ul);
 
-    for (b of data.results.shop) {
-      dis = document.createElement('ul');
-      li = document.createElement("li");
-      li.textContent = 'アクセス情報・・' + data.access;
-      ul.insertAdjacentElement("beroreend", li);
-      li.textContent = '住所・・' + data.address;
-      ul.insertAdjacentElement("beroreend", li);
-      li.textContent = '予算・・' + data.budget.name;
-      ul.insertAdjacentElement("beroreend", li);
-      li.textContent = 'キャッチコピー・・' + data.catch;
-      ul.insertAdjacentElement("beroreend", li);
-      li.textContent = '営業日時・・' + data.open;
-      ul.insertAdjacentElement("beroreend", li);
-      li.textContent = '最寄り駅・・' + data.station_name;
+    // for (b of i) {
+    //   li = document.createElement("li");
+    //   li.textContent = 'アクセス情報・・' + data.access;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '住所・・' + data.address;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '予算・・' + data.budget.name;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = 'キャッチコピー・・' + data.catch;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '営業日時・・' + data.open;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '最寄り駅・・' + data.station_name;
 
-    }
+    // }
     
     
    
 
     // data をコンソールに出力
     console.log(data);
+
+     // let b, ul = document.createElement("ul"), i = document.querySelectorAll('option[name="g"]'), Dis = document.createElement('ul'), li;
+    // dis.insertAdjacentElement("afterend", ul);
+
+    // for (b of i) {
+    //   li = document.createElement("li");
+    //   li.textContent = 'アクセス情報・・' + data.access;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '住所・・' + data.address;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '予算・・' + data.budget.name;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = 'キャッチコピー・・' + data.catch;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '営業日時・・' + data.open;
+    //   ul.insertAdjacentElement("beroreend", li);
+    //   li.textContent = '最寄り駅・・' + data.station_name;
+
+    // }
 
     // data.x を出力
     console.log(data.x);

@@ -212,16 +212,19 @@ let b = document.querySelector('button#sb');
 b.addEventListener('click', sendRequest);
 
 
+
 // 通信を開始する処理
 function sendRequest() {
+  c += 1;
   //  console.log(c);
   //  let m, x, y;
   //  y = document.querySelectorAll('option[name="g"]');
   //  for (m of y) {
   //   x = m.value
   //  }   
-  let a, A, aa, dis = document.querySelector('div#dis');
-  a = document.querySelector('option[name="g"]');
+  let a = document.querySelector('#select[name="select"]');
+  let A, aa, dis = document.querySelector('div#dis');
+  
   A = a.value;
   
   if (A === 'G001'){
@@ -275,9 +278,9 @@ function sendRequest() {
     aa = '韓国料理';
   }
  
-  dis.textContent = 'お店の名前--' + aa + '--';
+  dis.textContent = 'お店のジャンル--' + aa + '--';
     // URL を設定
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + A + '.json';
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ A +'.json';
 
     // 通信開始
 
@@ -290,7 +293,7 @@ function sendRequest() {
 
 // 通信が成功した時の処理
 function showResult(resp) {
-    c += 1;
+    
     // サーバから送られてきたデータを出力
     let data = resp.data;
 
@@ -299,52 +302,52 @@ function showResult(resp) {
         data = JSON.parse(data);
     }
 
-   
+    
+     // data をコンソールに出力
+     console.log(data);
 
-    // let b, ul = document.createElement("ul"), i = document.querySelectorAll('option[name="g"]'), Dis = document.createElement('ul'), li;
-    // dis.insertAdjacentElement("afterend", ul);
-
-    // for (b of i) {
-    //   li = document.createElement("li");
-    //   li.textContent = 'アクセス情報・・' + data.access;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '住所・・' + data.address;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '予算・・' + data.budget.name;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = 'キャッチコピー・・' + data.catch;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '営業日時・・' + data.open;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '最寄り駅・・' + data.station_name;
-
-    // }
     
     
-   
 
-    // data をコンソールに出力
-    console.log(data);
 
-     // let b, ul = document.createElement("ul"), i = document.querySelectorAll('option[name="g"]'), Dis = document.createElement('ul'), li;
-    // dis.insertAdjacentElement("afterend", ul);
+    
+    let x = document.querySelector('div#dis'), li, ul = document.createElement("ul");
+    x.insertAdjacentElement("afterend", ul);
+    for (let i=0; i<data.results.shop.length; i++) {
 
-    // for (b of i) {
-    //   li = document.createElement("li");
-    //   li.textContent = 'アクセス情報・・' + data.access;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '住所・・' + data.address;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '予算・・' + data.budget.name;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = 'キャッチコピー・・' + data.catch;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '営業日時・・' + data.open;
-    //   ul.insertAdjacentElement("beroreend", li);
-    //   li.textContent = '最寄り駅・・' + data.station_name;
+        let ul1 = document.createElement("ul");
+        ul1.textContent = '店舗名 : ' + data.results.shop[i].name;
+        ul.insertAdjacentElement("beforeend", ul1);
 
-    // }
+        let li = document.createElement("li");
+        
+        li.textContent = 'キャッチコピー: ' + data.results.shop[i].genre.catch;
+        ul1.insertAdjacentElement("beforeend", li);
+        
+        let li1 = document.createElement("li");
+        li1.textContent = '予算： ' + data.results.shop[i].budget.name;
+        ul1.insertAdjacentElement("beforeend", li1);
+        
+        let li2 = document.createElement("li");
+        li2.textContent = '営業日時 : ' + data.results.shop[i].open;
+        ul1.insertAdjacentElement("beforeend", li2);
+        
+        let li3 = document.createElement("li");
+        li3.textContent = '住所 : ' + data.results.shop[i].address;
+        ul1.insertAdjacentElement("beforeend", li3);
+        
+        let li4 = document.createElement("li");
+        li4.textContent = '最寄り駅： ' + data.results.shop[i].station_name;
+        ul1.insertAdjacentElement("beforeend", li4);
+        
+        let li5 = document.createElement("li");
+        li5.textContent = 'アクセス： ' + data.results.shop[i].access;
+        ul1.insertAdjacentElement("beforeend", li5);
+        
+ 
+    }
 
+     
     // data.x を出力
     console.log(data.x);
 }

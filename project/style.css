@@ -235,3 +235,8 @@ seb3 {
   transition: opacity 0.3s;
 }
 
+
+.result {
+  border: 2px solid black ;
+  padding-left: 20px;
+}
